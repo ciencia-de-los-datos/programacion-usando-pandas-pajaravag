@@ -147,7 +147,8 @@ def pregunta_09():
     39   39   E    5  1998-01-26  1998
 
     """
-    return
+    tbl0.year = tbl0._c3.apply(lambda x: str(x)[:4])
+    return tbl0.year
 
 
 def pregunta_10():
@@ -164,7 +165,17 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    return
+    X = []
+numbers = []
+for element in sorted(list(tbl0._c1.unique())):
+   
+    X =[str(tbl0._c2.iloc[row]) for row in range(len(tbl0)) if tbl0._c1.iloc[row] == element]
+    numbers.append(sorted(X))
+
+_c1 = [':'.join(element) for element in numbers]
+data = {'_c0': sorted(list(tbl0._c1.unique())),
+        '_c1': _c1}
+    return pd.DataFrame(data)
 
 
 def pregunta_11():
