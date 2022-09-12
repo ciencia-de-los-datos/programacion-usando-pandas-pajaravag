@@ -166,14 +166,13 @@ def pregunta_10():
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
     X = []
-numbers = []
-for element in sorted(list(tbl0._c1.unique())):
-   
-    X =[str(tbl0._c2.iloc[row]) for row in range(len(tbl0)) if tbl0._c1.iloc[row] == element]
-    numbers.append(sorted(X))
+    numbers = []
+    for element in sorted(list(tbl0._c1.unique())):
+        X =[str(tbl0._c2.iloc[row]) for row in range(len(tbl0)) if tbl0._c1.iloc[row] == element]
+        numbers.append(sorted(X))
 
-_c1 = [':'.join(element) for element in numbers]
-data = {'_c0': sorted(list(tbl0._c1.unique())),
+    _c1 = [':'.join(element) for element in numbers]
+    data = {'_c0': sorted(list(tbl0._c1.unique())),
         '_c1': _c1}
     return pd.DataFrame(data)
 
