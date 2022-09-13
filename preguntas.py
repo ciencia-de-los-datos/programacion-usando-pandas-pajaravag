@@ -204,7 +204,7 @@ def pregunta_11():
     X = []
     for i in list(tbl1._c0.unique()):
         letters = [tbl1._c4.iloc[row] for row in range(len(tbl1)) if tbl1._c0[row] == i]
-        X.append(letters)
+        X.append(sorted(letters))
 
     _c4 = [','.join(element) for element in X]
 
