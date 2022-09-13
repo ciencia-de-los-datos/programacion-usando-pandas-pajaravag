@@ -176,9 +176,12 @@ def pregunta_10():
 
     _c1 = [':'.join(element) for element in numbers]
    
-    data = {'_c1': _c1}
+    data = {'_c2': _c1}
 
-    return pd.DataFrame(data, index = sorted(list(tbl0._c1.unique())))
+    data = pd.DataFrame(data, index = sorted(list(tbl0._c1.unique())))
+    data.index.name = '_c1'
+
+    return data
 
 
 def pregunta_11():
