@@ -147,8 +147,9 @@ def pregunta_09():
     39   39   E    5  1998-01-26  1998
 
     """
-    tbl0.year = tbl0._c3.apply(lambda x: str(x)[:4])
-    return tbl0
+    _tbl0 = tbl0.copy() 
+    _tbl0.year = _tbl0._c3.apply(lambda x: str(x)[:4])
+    return _tbl0
 
 
 def pregunta_10():
@@ -172,9 +173,11 @@ def pregunta_10():
         numbers.append(sorted(X))
 
     _c1 = [':'.join(element) for element in numbers]
-    data = {'_c0': sorted(list(tbl0._c1.unique())),
-        '_c1': _c1}
-    return pd.DataFrame(data)
+   
+    data = {'_c1': _c1}
+    
+    pd.DataFrame(data, index = sorted(list(tbl0._c1.unique())))
+    return pd.DataFrame(data, index = sorted(list(tbl0._c1.unique())))
 
 
 def pregunta_11():
