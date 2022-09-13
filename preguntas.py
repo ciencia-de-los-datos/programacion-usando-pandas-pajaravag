@@ -148,8 +148,10 @@ def pregunta_09():
 
     """
     _tbl0 = tbl0.copy() 
-    _tbl0.year = _tbl0._c3.apply(lambda x: str(x)[:4])
-    return _tbl0
+    year = _tbl0._c3.apply(lambda x: str(x)[:4])
+    df = pd.concat([_tbl0, year], ignore_index = False, axis = 1)
+    df.columns = list(tbl0.columns) + ['year']
+    return df
 
 
 def pregunta_10():
