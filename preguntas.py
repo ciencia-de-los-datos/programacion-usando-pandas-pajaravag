@@ -207,7 +207,10 @@ def pregunta_11():
         X.append(letters)
 
     _c4 = [','.join(element) for element in X]
-    return _c4
+
+    df = pd.concat([pd.DataFrame(list(tbl1._c0.unique())), pd.DataFrame(_c4)], axis = 1)
+    df.columns = ['_c0', '_c4']
+    return df
 
 
 def pregunta_12():
