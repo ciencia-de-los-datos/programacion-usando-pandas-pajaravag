@@ -228,7 +228,16 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    return
+    _tbl2 = tbl2.copy()
+    agrupacion, _c5 = [], []
+    _tbl2['new_column'] = _tbl2._c5a.map(str) + ':' +_tbl2._c5b.map(str)
+    for element in sorted(list(_tbl2._c0.unique())):
+        X = [str(_tbl2.new_column.iloc[row]) for row in range(len(_tbl2)) if _tbl2._c0.iloc[row] == element]
+        agrupacion.append(sorted(X))
+    _c5 = [','.join(element) for element in agrupacion]
+    data ={'_c0': sorted(list(_tbl2._c0.unique())), '_c5': _c5}
+    data = pd.DataFrame(data)
+    return data
 
 
 def pregunta_13():
@@ -245,4 +254,6 @@ def pregunta_13():
     E    275
     Name: _c5b, dtype: int64
     """
-    return
+    temp_df = pd.merge(tbl2.groupby('_c0')['_c5b'].sum().reset_index(), tbl0, on = ['_c0'])
+
+    return temp_df.groupby(['_c1'])['_c5b'].sum()
